@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:kfc_app/view/cart_screen/cart_screen.dart';
 import 'package:kfc_app/view/home_screen/home_screen.dart';
+import 'package:kfc_app/view/menu_screen/menu_screen.dart';
+import 'package:kfc_app/view/more_screen/more_sceen.dart';
+import 'package:kfc_app/view/sign_in_screen/sign_in_screen.dart';
 
 class BottamnavbarScreen extends StatefulWidget {
   const BottamnavbarScreen({super.key});
@@ -12,18 +16,10 @@ class _BottamnavbarScreenState extends State<BottamnavbarScreen> {
   int selectedTab = 0;
   List screens = [
     HomeScreen(),
-    Container(
-      color: Colors.red,
-    ),
-    Container(
-      color: Colors.blue,
-    ),
-    Container(
-      color: Colors.yellow,
-    ),
-    Container(
-      color: Colors.black,
-    ),
+    MenuScreen(),
+    SignInScreen(),
+    CartScreen(),
+    MoreSceen(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -36,7 +32,7 @@ class _BottamnavbarScreenState extends State<BottamnavbarScreen> {
             setState(() {});
           },
           type: BottomNavigationBarType.fixed,
-          selectedItemColor: Colors.black,
+          selectedItemColor: Colors.red,
           items: [
             BottomNavigationBarItem(
                 icon: Icon(
@@ -47,22 +43,22 @@ class _BottamnavbarScreenState extends State<BottamnavbarScreen> {
                 backgroundColor: Colors.red),
             BottomNavigationBarItem(
                 icon: Icon(
-                  Icons.person_pin,
+                  Icons.restaurant_menu_sharp,
                   size: 30,
                 ),
-                label: "Account",
-                backgroundColor: Colors.red),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.fastfood),
                 label: "Menu",
                 backgroundColor: Colors.red),
             BottomNavigationBarItem(
-                icon: Icon(Icons.fastfood),
-                label: "Menu",
+                icon: Icon(Icons.account_circle_outlined),
+                label: "Sign in",
                 backgroundColor: Colors.red),
             BottomNavigationBarItem(
                 icon: Icon(Icons.fastfood),
-                label: "Menu",
+                label: "Cart",
+                backgroundColor: Colors.red),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.format_list_bulleted_outlined),
+                label: "More",
                 backgroundColor: Colors.red),
           ]),
     );

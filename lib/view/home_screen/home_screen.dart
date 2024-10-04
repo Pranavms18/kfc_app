@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:kfc_app/dummy_db.dart';
+import 'package:kfc_app/utils/constants/color_constants.dart';
+import 'package:kfc_app/view/home_screen/widget/browse_categoies_card.dart';
+import 'package:kfc_app/view/home_screen/widget/title_profile_card.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -69,7 +78,64 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
-            // Container(child: Image(image: AssetImage("assets/images/kfc2.png")))
+            SizedBox(
+              height: 300,
+              child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) => title_profilecard(
+                        image: DummyDb.homescreenimgage[index]["imageurl"],
+                      ),
+                  separatorBuilder: (context, index) => SizedBox(),
+                  itemCount: 3),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Expanded(
+              child: Container(
+                padding: EdgeInsetsDirectional.all(20),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Align(
+                          child: Text(
+                            "BROWSE CATEGORIES",
+                            style: TextStyle(
+                                color: ColorConstants.mainBlack,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w600),
+                          ),
+                          alignment: Alignment.topLeft,
+                        ),
+                        Divider(
+                          thickness: 5,
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Expanded(
+                      child: GridView.builder(
+                        itemCount: DummyDb.categoriesCardList.length,
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                            mainAxisSpacing: 10,
+                            crossAxisSpacing: 8,
+                            crossAxisCount: 2),
+                        itemBuilder: (BuildContext context, int index) {
+                          return browse_categories_card(
+                            image: DummyDb.categoriesCardList[index]
+                                ["imageurl"],
+                            itemName: DummyDb.categoriesCardList[index]["text"],
+                          );
+                        },
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            )
           ],
         ),
       ),
