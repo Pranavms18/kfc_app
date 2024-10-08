@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:kfc_app/dummy_db.dart';
 import 'package:kfc_app/utils/constants/color_constants.dart';
+import 'package:kfc_app/view/menu_screen/widget/box_meal_card.dart';
+import 'package:kfc_app/view/menu_screen/widget/chicken_bucket_card.dart';
+import 'package:kfc_app/view/menu_screen/widget/family_fest_card.dart';
+import 'package:kfc_app/view/menu_screen/widget/new_chickenroll_card.dart';
+import 'package:kfc_app/view/menu_screen/widget/rice_bowls_card.dart';
+import 'package:kfc_app/view/menu_screen/widget/value_snack_card.dart';
 import 'package:kfc_app/view/menu_screen/widget/wednesday_special_card.dart';
 
 class MenuScreen extends StatelessWidget {
@@ -11,7 +17,7 @@ class MenuScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: DefaultTabController(
-          length: 13,
+          length: 11,
           child: Column(children: [
             Container(
               padding: EdgeInsets.all(15),
@@ -84,14 +90,14 @@ class MenuScreen extends StatelessWidget {
               tabAlignment: TabAlignment.start,
               isScrollable: true,
               tabs: [
-                Icon(Icons.search),
+                // Icon(Icons.search),
                 Text("Wednesday Special"),
                 Text("New Chicken Rolls"),
                 Text("Family Feast"),
                 Text("Chicken Buckets"),
                 Text("Box Meals"),
                 Text("Value Snacks"),
-                Text("Internationals Burger Fest"),
+
                 Text("Rice Bowls"),
                 Text("Burgers"),
                 Text("Peri Peri Chicken"),
@@ -122,11 +128,106 @@ class MenuScreen extends StatelessWidget {
                 ),
                 ListView.separated(
                   itemBuilder: (context, index) {
-                    var item = DummyDb.wednesdayspecialcard[index];
+                    var item = DummyDb.NewChickenrolllist[index];
 
-                    return WednesdaySpecialCard(
+                    return NewChickenrollCard(
                       title: item["title"],
-                      subTitle: item["subTitle"],
+                      subtitle: item["subtitle"],
+                      price: item["price"],
+                      feature: item["feature"],
+                      image: item["image"],
+                      category: item["category"],
+                      details: item["details"],
+                    );
+                  },
+                  separatorBuilder: (context, index) => SizedBox(
+                    height: 2,
+                  ),
+                  itemCount: DummyDb.NewChickenrolllist.length,
+                ),
+                ListView.separated(
+                  itemBuilder: (context, index) {
+                    var item = DummyDb.familyfestList[index];
+
+                    return FamilyFestCard(
+                      title: item["title"],
+                      subtilte: item["subtitle"],
+                      price: item["price"],
+                      feature: item["feature"],
+                      image: item["image"],
+                      category: item["category"],
+                      details: item["details"],
+                    );
+                  },
+                  separatorBuilder: (context, index) => SizedBox(
+                    height: 2,
+                  ),
+                  itemCount: DummyDb.familyfestList.length,
+                ),
+                ListView.separated(
+                  itemBuilder: (context, index) {
+                    var item = DummyDb.ChickenBucketList[index];
+
+                    return ChickenBucketCard(
+                      title: item["title"],
+                      subTitle: item["subtitle"],
+                      price: item["price"],
+                      feature: item["feature"],
+                      image: item["image"],
+                      category: item["category"],
+                      details: item["details"],
+                    );
+                  },
+                  separatorBuilder: (context, index) => SizedBox(
+                    height: 2,
+                  ),
+                  itemCount: DummyDb.ChickenBucketList.length,
+                ),
+                ListView.separated(
+                  itemBuilder: (context, index) {
+                    var item = DummyDb.boxmealList[index];
+
+                    return BoxMealCard(
+                      title: item["title"],
+                      subTitle: item["subtitle"],
+                      price: item["price"],
+                      feature: item["feature"],
+                      image: item["image"],
+                      category: item["category"],
+                      details: item["details"],
+                    );
+                  },
+                  separatorBuilder: (context, index) => SizedBox(
+                    height: 2,
+                  ),
+                  itemCount: DummyDb.boxmealList.length,
+                ),
+                ListView.separated(
+                  itemBuilder: (context, index) {
+                    var item = DummyDb.ValueSnackList[index];
+
+                    return ValueSnackCard(
+                      title: item["title"],
+                      subTitle: item["subtitle"],
+                      price: item["price"],
+                      feature: item["feature"],
+                      image: item["image"],
+                      category: item["category"],
+                      details: item["details"],
+                    );
+                  },
+                  separatorBuilder: (context, index) => SizedBox(
+                    height: 2,
+                  ),
+                  itemCount: DummyDb.ValueSnackList.length,
+                ),
+                ListView.separated(
+                  itemBuilder: (context, index) {
+                    var item = DummyDb.ricebowlList[index];
+
+                    return RiceBowlsCard(
+                      title: item["title"],
+                      subTitle: item["subtitle"],
                       price: item["price"],
                       feature: item["feature"],
                       image: item["image"],
@@ -215,152 +316,6 @@ class MenuScreen extends StatelessWidget {
                   ),
                   itemCount: DummyDb.wednesdayspecialcard.length,
                 ),
-                ListView.separated(
-                  itemBuilder: (context, index) {
-                    var item = DummyDb.wednesdayspecialcard[index];
-
-                    return WednesdaySpecialCard(
-                      title: item["title"],
-                      subTitle: item["subTitle"],
-                      price: item["price"],
-                      feature: item["feature"],
-                      image: item["image"],
-                      category: item["category"],
-                      details: item["details"],
-                    );
-                  },
-                  separatorBuilder: (context, index) => SizedBox(
-                    height: 2,
-                  ),
-                  itemCount: DummyDb.wednesdayspecialcard.length,
-                ),
-                ListView.separated(
-                  itemBuilder: (context, index) {
-                    var item = DummyDb.wednesdayspecialcard[index];
-
-                    return WednesdaySpecialCard(
-                      title: item["title"],
-                      subTitle: item["subTitle"],
-                      price: item["price"],
-                      feature: item["feature"],
-                      image: item["image"],
-                      category: item["category"],
-                      details: item["details"],
-                    );
-                  },
-                  separatorBuilder: (context, index) => SizedBox(
-                    height: 2,
-                  ),
-                  itemCount: DummyDb.wednesdayspecialcard.length,
-                ),
-                ListView.separated(
-                  itemBuilder: (context, index) {
-                    var item = DummyDb.wednesdayspecialcard[index];
-
-                    return WednesdaySpecialCard(
-                      title: item["title"],
-                      subTitle: item["subTitle"],
-                      price: item["price"],
-                      feature: item["feature"],
-                      image: item["image"],
-                      category: item["category"],
-                      details: item["details"],
-                    );
-                  },
-                  separatorBuilder: (context, index) => SizedBox(
-                    height: 2,
-                  ),
-                  itemCount: DummyDb.wednesdayspecialcard.length,
-                ),
-                ListView.separated(
-                  itemBuilder: (context, index) {
-                    var item = DummyDb.wednesdayspecialcard[index];
-
-                    return WednesdaySpecialCard(
-                      title: item["title"],
-                      subTitle: item["subTitle"],
-                      price: item["price"],
-                      feature: item["feature"],
-                      image: item["image"],
-                      category: item["category"],
-                      details: item["details"],
-                    );
-                  },
-                  separatorBuilder: (context, index) => SizedBox(
-                    height: 2,
-                  ),
-                  itemCount: DummyDb.wednesdayspecialcard.length,
-                ),
-                ListView.separated(
-                  itemBuilder: (context, index) {
-                    var item = DummyDb.wednesdayspecialcard[index];
-
-                    return WednesdaySpecialCard(
-                      title: item["title"],
-                      subTitle: item["subTitle"],
-                      price: item["price"],
-                      feature: item["feature"],
-                      image: item["image"],
-                      category: item["category"],
-                      details: item["details"],
-                    );
-                  },
-                  separatorBuilder: (context, index) => SizedBox(
-                    height: 2,
-                  ),
-                  itemCount: DummyDb.wednesdayspecialcard.length,
-                ),
-                ListView.separated(
-                  itemBuilder: (context, index) {
-                    var item = DummyDb.wednesdayspecialcard[index];
-
-                    return WednesdaySpecialCard(
-                      title: item["title"],
-                      subTitle: item["subTitle"],
-                      price: item["price"],
-                      feature: item["feature"],
-                      image: item["image"],
-                      category: item["category"],
-                      details: item["details"],
-                    );
-                  },
-                  separatorBuilder: (context, index) => SizedBox(
-                    height: 2,
-                  ),
-                  itemCount: DummyDb.wednesdayspecialcard.length,
-                ),
-                ListView.separated(
-                  itemBuilder: (context, index) {
-                    var item = DummyDb.wednesdayspecialcard[index];
-
-                    return WednesdaySpecialCard(
-                      title: item["title"],
-                      subTitle: item["subTitle"],
-                      price: item["price"],
-                      feature: item["feature"],
-                      image: item["image"],
-                      category: item["category"],
-                      details: item["details"],
-                    );
-                  },
-                  separatorBuilder: (context, index) => SizedBox(
-                    height: 2,
-                  ),
-                  itemCount: DummyDb.wednesdayspecialcard.length,
-                ),
-
-                // WednesdaySpecialCard(),
-                // WednesdaySpecialCard(),
-                // WednesdaySpecialCard(),
-                // WednesdaySpecialCard(),
-                // WednesdaySpecialCard(),
-                // WednesdaySpecialCard(),
-                // WednesdaySpecialCard(),
-                // WednesdaySpecialCard(),
-                // WednesdaySpecialCard(),
-                // WednesdaySpecialCard(),
-                // WednesdaySpecialCard(),
-                // WednesdaySpecialCard(),
               ]),
             ),
           ]),

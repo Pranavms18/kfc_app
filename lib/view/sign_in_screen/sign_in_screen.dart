@@ -39,8 +39,11 @@ class SignInScreen extends StatelessWidget {
                 height: 45,
               ),
               TextFormField(
-                controller: TextEditingController(text: "phone number"),
+                decoration: InputDecoration(labelText: "phone number"),
+                // focusNode: FocusNode(debugLabel: "phone number"),
+                // controller: TextEditingController(text: "phone number"),
               ),
+
               SizedBox(
                 height: 8,
               ),
@@ -49,14 +52,17 @@ class SignInScreen extends StatelessWidget {
               SizedBox(
                 height: 25,
               ),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 50, vertical: 10),
-                decoration: BoxDecoration(
-                    color: ColorConstants.mainBlack,
-                    borderRadius: BorderRadius.circular(10)),
-                child: Text(
-                  "Send me a code",
-                  style: TextStyle(color: Colors.white),
+              InkWell(
+                onTap: () {},
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+                  decoration: BoxDecoration(
+                      color: ColorConstants.mainBlack,
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Text(
+                    "Send me a code",
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
               ),
               Spacer(),

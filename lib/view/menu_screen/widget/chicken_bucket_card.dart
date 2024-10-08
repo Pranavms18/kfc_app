@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:kfc_app/utils/constants/color_constants.dart';
 
-class WednesdaySpecialCard extends StatelessWidget {
-  const WednesdaySpecialCard(
-      {required this.title,
+class ChickenBucketCard extends StatelessWidget {
+  const ChickenBucketCard(
+      {super.key,
+      required this.title,
       required this.subTitle,
-      required this.price,
       required this.feature,
       required this.image,
+      required this.price,
       required this.category,
-      required this.details,
-      super.key});
+      required this.details});
   final String title;
   final String subTitle;
   final String feature;

@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:kfc_app/utils/constants/color_constants.dart';
 
-class WednesdaySpecialCard extends StatelessWidget {
-  const WednesdaySpecialCard(
-      {required this.title,
-      required this.subTitle,
-      required this.price,
+class NewChickenrollCard extends StatelessWidget {
+  const NewChickenrollCard(
+      {super.key,
+      required this.title,
+      required this.subtitle,
       required this.feature,
       required this.image,
+      required this.price,
       required this.category,
-      required this.details,
-      super.key});
+      required this.details});
+
   final String title;
-  final String subTitle;
+  final String subtitle;
   final String feature;
   final String image;
   final String price;
@@ -45,7 +46,7 @@ class WednesdaySpecialCard extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(subTitle),
+                    Text(subtitle),
                     Image(
                       fit: BoxFit.fitHeight,
                       image: NetworkImage(
